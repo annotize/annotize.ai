@@ -38,6 +38,7 @@ jobs:
           cache: npm
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        id: configure-pages
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -52,6 +53,8 @@ jobs:
         run: npm install
       - name: Build with Next.js
         run: npm build
+        env:
+          NEXT_BASE_PATH: ${{ steps.configure_pages.outputs.base_path }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
