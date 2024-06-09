@@ -52,7 +52,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build with Next.js
-        run: npm build
+        run: npm run build
         env:
           NEXT_BASE_PATH: ${{ steps.configure_pages.outputs.base_path }}
       - name: Upload artifact
