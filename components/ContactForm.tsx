@@ -42,9 +42,10 @@ export function ContactForm() {
         className="space-y-8"
         method="POST"
       >
+        <input type="hidden" name="_redirect" value="https://annotize.ai" />
         <FormField
           control={form.control}
-          name="email"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
@@ -70,7 +71,7 @@ export function ContactForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="message"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
