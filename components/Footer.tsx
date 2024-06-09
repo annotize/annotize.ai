@@ -7,7 +7,9 @@ export function Footer() {
         color: "var(--background-color)",
       }}
     >
-      <div className="mx-auto w-full max-w-screen-xl text-center">Annotize</div>
+      <div className="mx-auto w-full max-w-screen-xl text-center">
+        &copy; 2024 Annotize.ai
+      </div>
     </footer>
   );
 }
