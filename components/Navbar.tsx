@@ -15,7 +15,9 @@ export function Navbar() {
           </span>
         </Link>
         <div className="justify-end">
-          <Button>Contact us</Button>
+          <Button asChild>
+            <Link href={Hrefs.contact}>Contact us</Link>
+          </Button>
         </div>
       </div>
     </nav>
