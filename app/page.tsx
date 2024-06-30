@@ -24,10 +24,10 @@ const benefits: Benefit[] = [
   {
     heading: "Content insights that matter to your business",
     image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
-    text: "Annotize automatically distills documents into structured data you can use, saving you time and money.",
+    text: "Annotize automatically distills documents into information you can use, saving you time and money.",
     supportingFeatures: [
       {
-        text: "Fewer words, more essential information",
+        text: "Fewer words, more essentials",
       },
       {
         text: "Image recognition",
@@ -40,7 +40,7 @@ const benefits: Benefit[] = [
   {
     heading: "Your documents, your terms",
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
-    text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms and structure you already understand.",
+    text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms you already understand",
     supportingFeatures: [
       {
         text: "Industry-specific standards such as IAB and MeSH",
