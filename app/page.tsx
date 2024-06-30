@@ -24,7 +24,7 @@ const benefits: Benefit[] = [
   {
     heading: "Content insights that matter to your business",
     image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
-    text: "Annotize automatically distills documents into information you can use, saving you time and money.",
+    text: "Annotize automatically distills documents into information you can use, saving you time and money. <Need a statement here about AI just producing more text.>",
     supportingFeatures: [
       {
         text: "Fewer words, more essentials",
