@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col py-2 px-2">
+        <div className="flex flex-col justify-between min-h-screen py-2 px-2">
           <Navbar />
           {children}
           <Footer />
