@@ -24,16 +24,16 @@ const benefits: Benefit[] = [
   {
     heading: "Content insights that matter to your business",
     image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
-    text: "While other AI solutions give you more words to make sense of, Annotize automatically extracts structured data from documents, saving you time and money.",
+    text: "Annotize automatically distills documents into structured data you can use, saving you time and money.",
     supportingFeatures: [
+      {
+        text: "Fewer words, more essential information",
+      },
       {
         text: "Image recognition",
       },
       {
-        text: "Generative Artificial Intelligence",
-      },
-      {
-        text: "Data standard such as RDF, SKOS, ...",
+        text: "Advanced Artificial Intelligence",
       },
     ],
   },
@@ -42,9 +42,6 @@ const benefits: Benefit[] = [
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
     text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms and structure you already understand.",
     supportingFeatures: [
-      {
-        text: "",
-      },
       {
         text: "Industry-specific standards such as IAB and MeSH",
       },
