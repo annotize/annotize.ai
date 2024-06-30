@@ -15,6 +15,8 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from "react";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -34,6 +36,10 @@ export function ContactForm() {
     },
   });
 
+  const [recaptchaResponse, setRecaptchaResponse] = useState<string | null>(
+    null
+  );
+
   return (
     <Form {...form}>
       <form
@@ -42,7 +48,16 @@ export function ContactForm() {
         className="flex flex-col space-y-8 w-full"
         method="POST"
       >
+        <input type="hidden" name="_append" value="false" />
         <input type="hidden" name="_redirect" value="https://annotize.ai" />
+        {/* // The ReCAPTCHA code adds this field to the form already */}
+        {/* {recaptchaResponse ? (
+          <input
+            type="hidden"
+            name="g-recaptcha-response"
+            value={recaptchaResponse}
+          />
+        ) : null} */}
         <FormField
           control={form.control}
           name="name"
@@ -86,7 +101,13 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <ReCAPTCHA
+          sitekey="6Lc48QQqAAAAAE8-ZWlx-VUn0n4nCa1VVjDC1XT7"
+          onChange={setRecaptchaResponse}
+        />
+        <Button disabled={!recaptchaResponse} type="submit">
+          Submit
+        </Button>
       </form>
     </Form>
   );
