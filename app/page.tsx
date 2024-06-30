@@ -4,44 +4,72 @@ import { Button } from "@/components/ui/button";
 import { Hrefs } from "@/lib/Hrefs";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import React from "react";
 
-function BenefitSection({
-  heading,
-  features,
-  imageSrc,
-  text,
-}: {
-  heading: string;
-  features: readonly {
-    text: string;
-  }[];
-  imageSrc: string;
-  text: string;
-}) {
-  return (
-    <section className="flex flex-col items-center gap-4">
-      <h2 className="text-4xl">{heading}</h2>
-      <p className="text-gray-600">{text}</p>
-      <img alt={heading} src={imageSrc} style={{ maxWidth: "50%" }} />
-      <div className="flex flex-row justify-between">
-        {features.map((feature, featureI) => (
-          <div
-            className={cn({
-              "border-x-2":
-                featureI === 0 ||
-                featureI === features.length - 1 ||
-                featureI % 2 === 0,
-              "px-2": true,
-            })}
-            key={featureI}
-          >
-            {feature.text}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+interface Feature {
+  text: NonNullable<React.ReactNode>;
 }
+
+interface Benefit {
+  heading: NonNullable<React.ReactNode>;
+  image: {
+    alt: string;
+    src: string;
+  };
+  supportingFeatures: readonly Feature[];
+  text: NonNullable<React.ReactNode>;
+}
+
+const benefits: Benefit[] = [
+  {
+    heading: "Content insights that matter to your business",
+    image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
+    text: "While other AI solutions give you more words to make sense of, Annotize automatically extracts structured data from documents, saving you time and money.",
+    supportingFeatures: [
+      {
+        text: "Image recognition",
+      },
+      {
+        text: "Generative Artificial Intelligence",
+      },
+      {
+        text: "Data standard such as RDF, SKOS, ...",
+      },
+    ],
+  },
+  {
+    heading: "Your documents, your terms",
+    image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
+    text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms and structure you already understand.",
+    supportingFeatures: [
+      {
+        text: "",
+      },
+      {
+        text: "Industry-specific standards such as IAB and MeSH",
+      },
+      {
+        text: "Annotize-specific vocabularies developed by experts",
+      },
+    ],
+  },
+  {
+    heading: "Connect to your data ecosystem",
+    image: { alt: "Image evoking the benefit", src: "benefit-3.png" },
+    text: "Annotize plays well with the rest of your data ecosystem",
+    supportingFeatures: [
+      {
+        text: "Tabular outputs: CSV, Excel",
+      },
+      {
+        text: "Graph outputs: RDF, Cypher",
+      },
+      {
+        text: "(Eventually) integrate with third party tools such as Google Analytics",
+      },
+    ],
+  },
+];
 
 export default function Home() {
   return (
@@ -50,8 +78,8 @@ export default function Home() {
         <div className="flex flex-col items-center gap-4">
           <h1 className="font-bold text-5xl">Insights on your terms</h1>
           <p className="text-gray-600" style={{ maxWidth: "50%" }}>
-            Annotize analyzes your content using terms from your industry – from
-            healthcare to finance to legal services.
+            Annotize analyzes your content using terms from your industry
+            &mdash; from healthcare to finance to legal services.
           </p>
           <ContactButton />
         </div>
@@ -63,36 +91,33 @@ export default function Home() {
           />
         </div>
       </section>
-      <BenefitSection
-        features={[
-          { text: "Feature 1" },
-          { text: "Feature 2" },
-          { text: "Feature 3" },
-        ]}
-        heading="Less reading"
-        imageSrc="benefit-1.png"
-        text="Have the AI identify the things your business cares about."
-      />
-      <BenefitSection
-        features={[
-          { text: "Feature 1" },
-          { text: "Feature 2" },
-          { text: "Feature 3" },
-        ]}
-        heading="Save money on labeling"
-        imageSrc="benefit-2.png"
-        text="Manual labeling is expensive and time consuming."
-      />
-      <BenefitSection
-        features={[
-          { text: "Feature 1" },
-          { text: "Feature 2" },
-          { text: "Feature 3" },
-        ]}
-        heading="Output in your terms"
-        imageSrc="benefit-3.png"
-        text="We deliver structured data from LLMs, not more words."
-      />
+      {benefits.map((benefit, benefitI) => (
+        <section className="flex flex-col items-center gap-4" key={benefitI}>
+          <h2 className="text-4xl">{benefit.heading}</h2>
+          <p className="text-gray-600">{benefit.text}</p>
+          <img
+            alt={benefit.image.alt}
+            src={benefit.image.src}
+            style={{ maxWidth: "50%" }}
+          />
+          <div className="flex flex-row justify-between">
+            {benefit.supportingFeatures.map((feature, featureI) => (
+              <div
+                className={cn({
+                  "border-x-2":
+                    featureI === 0 ||
+                    featureI === benefit.supportingFeatures.length - 1 ||
+                    featureI % 2 === 0,
+                  "px-2": true,
+                })}
+                key={featureI}
+              >
+                {feature.text}
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
     </main>
   );
 }
