@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { ContactButton } from "@/components/ContactButton";
 import { Button } from "@/components/ui/button";
 import { Hrefs } from "@/lib/Hrefs";
 import { cn } from "@/lib/utils";
@@ -19,7 +20,7 @@ function BenefitSection({
 }) {
   return (
     <section className="flex flex-col items-center gap-4">
-      <h2 className="text-2xl">{heading}</h2>
+      <h2 className="text-4xl">{heading}</h2>
       <p className="text-gray-600">{text}</p>
       <img alt={heading} src={imageSrc} style={{ maxWidth: "50%" }} />
       <div className="flex flex-row justify-between">
@@ -44,17 +45,15 @@ function BenefitSection({
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-16">
+    <main className="flex flex-col gap-32">
       <section className="flex flex-row items-center">
         <div className="flex flex-col items-center gap-4">
-          <h1 className="font-bold text-4xl">Insights on your terms</h1>
+          <h1 className="font-bold text-5xl">Insights on your terms</h1>
           <p className="text-gray-600" style={{ maxWidth: "50%" }}>
             Annotize analyzes your content using terms from your industry – from
             healthcare to finance to legal services.
           </p>
-          <Button asChild>
-            <Link href={Hrefs.contact}>Contact us</Link>
-          </Button>
+          <ContactButton />
         </div>
         <div style={{ maxWidth: "50%" }}>
           <img

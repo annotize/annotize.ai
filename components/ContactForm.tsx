@@ -39,7 +39,7 @@ export function ContactForm() {
       <form
         accept-charset="UTF-8"
         action="https://submit-form.com/YSagckDdF"
-        className="space-y-8"
+        className="flex flex-col space-y-8 w-full"
         method="POST"
       >
         <input type="hidden" name="_redirect" value="https://annotize.ai" />
@@ -50,7 +50,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input autoFocus placeholder="Your name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,7 +76,11 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Message" {...field} />
+                <Textarea
+                  className="min-h-40"
+                  placeholder="Message"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

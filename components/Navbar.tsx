@@ -2,8 +2,7 @@ import Link from "next/link";
 import { Allerta_Stencil } from "next/font/google";
 import { Hrefs } from "@/lib/Hrefs";
 import { Button } from "./ui/button";
-
-const allertStencil = Allerta_Stencil({ subsets: ["latin"], weight: "400" });
+import { ContactButton } from "@/components/ContactButton";
 
 export function Navbar() {
   return (
@@ -15,11 +14,11 @@ export function Navbar() {
           </span>
         </Link>
         <div className="justify-end">
-          <Button asChild>
-            <Link href={Hrefs.contact}>Contact us</Link>
-          </Button>
+          <ContactButton />
         </div>
       </div>
     </nav>
   );
 }
+
+const allertStencil = Allerta_Stencil({ subsets: ["latin"], weight: "400" });
