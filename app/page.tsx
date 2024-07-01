@@ -27,13 +27,13 @@ const benefits: Benefit[] = [
     text: "Annotize uses your terminology to classify content, giving you straightforward, actionable insights without the need for additional reading.",
     supportingFeatures: [
       {
-        text: "Fewer words, more essentials",
+        text: "Essential meanings via auto-classification",
       },
       {
-        text: "Image recognition",
+        text: "Works with text, images, and structured data.",
       },
       {
-        text: "Advanced Artificial Intelligence",
+        text: "Uses cloud or on-prem LLMs.",
       },
     ],
   },
@@ -43,26 +43,26 @@ const benefits: Benefit[] = [
     text: "Your terms clarfiy meaning and connect data. Deploy them at scale.",
     supportingFeatures: [
       {
-        text: "Standard Terminologies",
+        text: "Standard terminologies such as ICD, MeSH, Allotrope and others.",
       },
       {
-        text: "Your taxonomies & ",
+        text: "Bring-Your-Own terminology from tag sets to ontologies.",
       },
     ],
   },
   {
-    heading: "Seamless Integration with Your Data Tools",
+    heading: "Integrates with your tools",
     image: { alt: "Image evoking the benefit", src: "benefit-3.png" },
-    text: "Annotize helps you integrate data, not isolate it.",
+    text: "Annotize was built to break down data silos.",
     supportingFeatures: [
       {
-        text: "GraphQL & REST",
+        text: "GraphQL & REST APIs",
       },
       {
-        text: "Graph native outputs (RDF/Cypher)",
+        text: "Graph native outputs",
       },
       {
-        text: "Plug and Play Connectors",
+        text: "Plug and Play Connectors for analytics and BI.",
       },
     ],
   },
