@@ -30,23 +30,23 @@ const benefits: Benefit[] = [
         text: "Essential meanings via auto-classification",
       },
       {
-        text: "Works with text, images, and structured data.",
+        text: "Works with text, images, and structured data",
       },
       {
-        text: "Uses cloud or on-prem LLMs.",
+        text: "Uses cloud or on-premise language models",
       },
     ],
   },
   {
     heading: "Your documents, your terms",
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
-    text: "Your terms clarfiy meaning and connect data. Deploy them at scale.",
+    text: "Your terms clarify meaning and connect data. Deploy terms at scale.",
     supportingFeatures: [
       {
-        text: "Standard terminologies such as ICD, MeSH, Allotrope and others.",
+        text: "Standard terminologies such as ICD, MeSH, Allotrope and others",
       },
       {
-        text: "Bring-Your-Own terminology from tag sets to ontologies.",
+        text: "Bring-your-own terminology, from tag sets to ontologies",
       },
     ],
   },
@@ -56,13 +56,13 @@ const benefits: Benefit[] = [
     text: "Annotize was built to break down data silos.",
     supportingFeatures: [
       {
-        text: "GraphQL & REST APIs",
+        text: "GraphQL and REST APIs",
       },
       {
         text: "Graph native outputs",
       },
       {
-        text: "Plug and Play Connectors for analytics and BI.",
+        text: "Connectors for downstream analytics",
       },
     ],
   },
@@ -70,7 +70,7 @@ const benefits: Benefit[] = [
 
 function BenefitImageColumn({ benefit }: { benefit: Benefit }) {
   return (
-    <div className="min-h-[28rem]">
+    <div className="min-h-[26rem]">
       <img alt={benefit.image.alt} src={benefit.image.src} />
     </div>
   );
@@ -78,7 +78,7 @@ function BenefitImageColumn({ benefit }: { benefit: Benefit }) {
 
 function BenefitTextColumn({ benefit }: { benefit: Benefit }) {
   return (
-    <div className="flex flex-col gap-4 max-w-[56rem] min-h-[28rem]">
+    <div className="flex flex-col gap-4 max-w-[56rem] min-h-[26rem]">
       <h2 className="text-4xl">{benefit.heading}</h2>
       <p
         className="text-gray-600 text-left w-full"
@@ -109,16 +109,17 @@ function BenefitTextColumn({ benefit }: { benefit: Benefit }) {
 export default function Home() {
   return (
     <main className="flex flex-col gap-32 items-center">
-      <section className="flex flex-row items-center">
-        <div className="flex flex-col items-center gap-4">
+      <section className="flex flex-row justify-between">
+        <div className="flex flex-col justify-center gap-4">
           <h1 className="font-bold text-5xl">Insights on your terms</h1>
-          <p className="text-gray-600" style={{ maxWidth: "50%" }}>
-            Annotize analyzes your content using terms from your industry
-            &mdash; from healthcare to finance to legal services.
+          <p className="text-gray-600">
+            Annotize analyzes your content using terms from your industry.
           </p>
-          <ContactButton />
+          <div className="text-center">
+            <ContactButton />
+          </div>
         </div>
-        <div style={{ maxWidth: "50%" }}>
+        <div className="max-w-[50%]">
           <img
             alt="Hero image"
             src="hero-image.png"
