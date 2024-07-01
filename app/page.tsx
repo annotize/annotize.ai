@@ -68,9 +68,47 @@ const benefits: Benefit[] = [
   },
 ];
 
+function BenefitImageColumn({ benefit }: { benefit: Benefit }) {
+  return (
+    <div className="min-h-[28rem]">
+      <img alt={benefit.image.alt} src={benefit.image.src} />
+    </div>
+  );
+}
+
+function BenefitTextColumn({ benefit }: { benefit: Benefit }) {
+  return (
+    <div className="flex flex-col gap-4 max-w-[56rem] min-h-[28rem]">
+      <h2 className="text-4xl">{benefit.heading}</h2>
+      <p
+        className="text-gray-600 text-left w-full"
+        style={{ maxWidth: "40rem" }}
+      >
+        {benefit.text}
+      </p>
+      <div className="flex flex-row">
+        {benefit.supportingFeatures.map((feature, featureI) => (
+          <div
+            className={cn({
+              "border-x-2":
+                featureI === 0 ||
+                featureI === benefit.supportingFeatures.length - 1 ||
+                featureI % 2 === 0,
+              "px-2": true,
+            })}
+            key={featureI}
+          >
+            {feature.text}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="flex flex-col gap-32">
+    <main className="flex flex-col gap-32 items-center">
       <section className="flex flex-row items-center">
         <div className="flex flex-col items-center gap-4">
           <h1 className="font-bold text-5xl">Insights on your terms</h1>
@@ -88,33 +126,26 @@ export default function Home() {
           />
         </div>
       </section>
-      {benefits.map((benefit, benefitI) => (
-        <section className="flex flex-col items-center gap-4" key={benefitI}>
-          <h2 className="text-4xl">{benefit.heading}</h2>
-          <p className="text-gray-600">{benefit.text}</p>
-          <img
-            alt={benefit.image.alt}
-            src={benefit.image.src}
-            style={{ maxWidth: "50%" }}
-          />
-          <div className="flex flex-row justify-between">
-            {benefit.supportingFeatures.map((feature, featureI) => (
-              <div
-                className={cn({
-                  "border-x-2":
-                    featureI === 0 ||
-                    featureI === benefit.supportingFeatures.length - 1 ||
-                    featureI % 2 === 0,
-                  "px-2": true,
-                })}
-                key={featureI}
-              >
-                {feature.text}
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+      <section className="flex flex-row gap-4 md:gap-8 lg:gap-8 xl:gap-16 items-center">
+        <div>
+          {benefits.map((benefit, benefitI) =>
+            benefitI % 2 === 0 ? (
+              <BenefitImageColumn benefit={benefit} key={benefitI} />
+            ) : (
+              <BenefitTextColumn benefit={benefit} key={benefitI} />
+            )
+          )}
+        </div>
+        <div>
+          {benefits.map((benefit, benefitI) =>
+            benefitI % 2 === 0 ? (
+              <BenefitTextColumn benefit={benefit} key={benefitI} />
+            ) : (
+              <BenefitImageColumn benefit={benefit} key={benefitI} />
+            )
+          )}
+        </div>
+      </section>
     </main>
   );
 }
