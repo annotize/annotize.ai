@@ -10,7 +10,7 @@ export function Navbar() {
       <div className="flex flex-wrap justify-between">
         <Link href={Hrefs.root} className="flex space-x-3 rtl:space-x-reverse">
           <span className="self-center md:text-xl lg:text-2xl xl:text-4xl font-semibold whitespace-nowrap dark:text-white">
-            <span className={allertStencil.className}>annotize.ia</span>
+            <span className={allertStencil.className}>annotize.ai</span>
           </span>
         </Link>
         <div className="justify-end">
