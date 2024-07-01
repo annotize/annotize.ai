@@ -24,63 +24,102 @@ const benefits: Benefit[] = [
   {
     heading: "Content insights that matter to your business",
     image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
-    text: "Annotize automatically distills documents into information you can use, saving you time and money. <Need a statement here about AI just producing more text.>",
+    text: "Annotize uses your terminology to classify content, giving you straightforward, actionable insights without the need for additional reading.",
     supportingFeatures: [
       {
-        text: "Fewer words, more essentials",
+        text: "Essential meanings via auto-classification",
       },
       {
-        text: "Image recognition",
+        text: "Works with text, images, and structured data",
       },
       {
-        text: "Advanced Artificial Intelligence",
+        text: "Uses cloud or on-premise language models",
       },
     ],
   },
   {
     heading: "Your documents, your terms",
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
-    text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms you already understand",
+    text: "Your terms clarify meaning and connect data. Deploy terms at scale.",
     supportingFeatures: [
       {
-        text: "Industry-specific standards such as IAB and MeSH",
+        text: "Standard terminologies such as ICD, MeSH, Allotrope and others",
       },
       {
-        text: "Annotize-specific vocabularies developed by experts",
+        text: "Bring-your-own terminology, from tag sets to ontologies",
       },
     ],
   },
   {
-    heading: "Connect to your data ecosystem",
+    heading: "Integrates with your tools",
     image: { alt: "Image evoking the benefit", src: "benefit-3.png" },
-    text: "Annotize plays well with the rest of your data ecosystem",
+    text: "Annotize was built to break down data silos.",
     supportingFeatures: [
       {
-        text: "Tabular outputs: CSV, Excel",
+        text: "GraphQL and REST APIs",
       },
       {
-        text: "Graph outputs: RDF, Cypher",
+        text: "Graph native outputs",
       },
       {
-        text: "(Eventually) integrate with third party tools such as Google Analytics",
+        text: "Connectors for downstream analytics",
       },
     ],
   },
 ];
 
+function BenefitImageColumn({ benefit }: { benefit: Benefit }) {
+  return (
+    <div className="min-h-[26rem]">
+      <img alt={benefit.image.alt} src={benefit.image.src} />
+    </div>
+  );
+}
+
+function BenefitTextColumn({ benefit }: { benefit: Benefit }) {
+  return (
+    <div className="flex flex-col gap-4 max-w-[56rem] min-h-[26rem]">
+      <h2 className="text-4xl">{benefit.heading}</h2>
+      <p
+        className="text-gray-600 text-left w-full"
+        style={{ maxWidth: "40rem" }}
+      >
+        {benefit.text}
+      </p>
+      <div className="flex flex-row">
+        {benefit.supportingFeatures.map((feature, featureI) => (
+          <div
+            className={cn({
+              "border-x-2":
+                featureI === 0 ||
+                featureI === benefit.supportingFeatures.length - 1 ||
+                featureI % 2 === 0,
+              "px-2": true,
+            })}
+            key={featureI}
+          >
+            {feature.text}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="flex flex-col gap-32">
-      <section className="flex flex-row items-center">
-        <div className="flex flex-col items-center gap-4">
+    <main className="flex flex-col gap-32 items-center">
+      <section className="flex flex-row justify-between">
+        <div className="flex flex-col justify-center gap-4">
           <h1 className="font-bold text-5xl">Insights on your terms</h1>
-          <p className="text-gray-600" style={{ maxWidth: "50%" }}>
-            Annotize analyzes your content using terms from your industry
-            &mdash; from healthcare to finance to legal services.
+          <p className="text-gray-600">
+            Annotize analyzes your content using terms from your industry.
           </p>
-          <ContactButton />
+          <div className="text-center">
+            <ContactButton />
+          </div>
         </div>
-        <div style={{ maxWidth: "50%" }}>
+        <div className="max-w-[50%]">
           <img
             alt="Hero image"
             src="hero-image.png"
@@ -88,33 +127,26 @@ export default function Home() {
           />
         </div>
       </section>
-      {benefits.map((benefit, benefitI) => (
-        <section className="flex flex-col items-center gap-4" key={benefitI}>
-          <h2 className="text-4xl">{benefit.heading}</h2>
-          <p className="text-gray-600">{benefit.text}</p>
-          <img
-            alt={benefit.image.alt}
-            src={benefit.image.src}
-            style={{ maxWidth: "50%" }}
-          />
-          <div className="flex flex-row justify-between">
-            {benefit.supportingFeatures.map((feature, featureI) => (
-              <div
-                className={cn({
-                  "border-x-2":
-                    featureI === 0 ||
-                    featureI === benefit.supportingFeatures.length - 1 ||
-                    featureI % 2 === 0,
-                  "px-2": true,
-                })}
-                key={featureI}
-              >
-                {feature.text}
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+      <section className="flex flex-row gap-4 md:gap-8 lg:gap-8 xl:gap-16 items-center">
+        <div>
+          {benefits.map((benefit, benefitI) =>
+            benefitI % 2 === 0 ? (
+              <BenefitImageColumn benefit={benefit} key={benefitI} />
+            ) : (
+              <BenefitTextColumn benefit={benefit} key={benefitI} />
+            )
+          )}
+        </div>
+        <div>
+          {benefits.map((benefit, benefitI) =>
+            benefitI % 2 === 0 ? (
+              <BenefitTextColumn benefit={benefit} key={benefitI} />
+            ) : (
+              <BenefitImageColumn benefit={benefit} key={benefitI} />
+            )
+          )}
+        </div>
+      </section>
     </main>
   );
 }
