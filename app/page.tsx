@@ -24,7 +24,7 @@ const benefits: Benefit[] = [
   {
     heading: "Content insights that matter to your business",
     image: { alt: "Image evoking the benefit", src: "benefit-1.png" },
-    text: "Annotize automatically distills documents into information you can use, saving you time and money. <Need a statement here about AI just producing more text.>",
+    text: "Annotize uses your terminology to classify content, giving you straightforward, actionable insights without the need for additional reading.",
     supportingFeatures: [
       {
         text: "Fewer words, more essentials",
@@ -40,7 +40,7 @@ const benefits: Benefit[] = [
   {
     heading: "Your documents, your terms",
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
-    text: "When it comes to content analysis, there's no one-size fits-all solution. Annotize uses terms you already understand",
+    text: "Annotize understands that your terms are the glue across your systems.",
     supportingFeatures: [
       {
         text: "Industry-specific standards such as IAB and MeSH",
@@ -51,18 +51,18 @@ const benefits: Benefit[] = [
     ],
   },
   {
-    heading: "Connect to your data ecosystem",
+    heading: "Seamless Integration with Your Data Tools",
     image: { alt: "Image evoking the benefit", src: "benefit-3.png" },
-    text: "Annotize plays well with the rest of your data ecosystem",
+    text: "Annotize helps you integrater data, not isolate it.",
     supportingFeatures: [
       {
-        text: "Tabular outputs: CSV, Excel",
+        text: "GraphQL & REST",
       },
       {
-        text: "Graph outputs: RDF, Cypher",
+        text: "Graph native outputs (RDF/Cypher)",
       },
       {
-        text: "(Eventually) integrate with third party tools such as Google Analytics",
+        text: "Plug and Play Connectors",
       },
     ],
   },
