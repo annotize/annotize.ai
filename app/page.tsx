@@ -40,20 +40,20 @@ const benefits: Benefit[] = [
   {
     heading: "Your documents, your terms",
     image: { alt: "Image evoking the benefit", src: "benefit-2.png" },
-    text: "Annotize understands that your terms are the glue across your systems.",
+    text: "Your terms clarfiy meaning and connect data. Deploy them at scale.",
     supportingFeatures: [
       {
-        text: "Industry-specific standards such as IAB and MeSH",
+        text: "Standard Terminologies",
       },
       {
-        text: "Annotize-specific vocabularies developed by experts",
+        text: "Your taxonomies & ",
       },
     ],
   },
   {
     heading: "Seamless Integration with Your Data Tools",
     image: { alt: "Image evoking the benefit", src: "benefit-3.png" },
-    text: "Annotize helps you integrater data, not isolate it.",
+    text: "Annotize helps you integrate data, not isolate it.",
     supportingFeatures: [
       {
         text: "GraphQL & REST",
