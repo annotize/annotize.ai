@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Allerta_Stencil } from "next/font/google";
 import { Hrefs } from "@/lib/Hrefs";
-import { Button } from "./ui/button";
 import { ContactButton } from "@/components/ContactButton";
 
 export function Navbar() {
@@ -13,7 +12,7 @@ export function Navbar() {
             <span className={allertStencil.className}>annotize.ai</span>
           </span>
         </Link>
-        <div className="justify-end">
+        <div className="hidden md:block justify-end">
           <ContactButton />
         </div>
       </div>
