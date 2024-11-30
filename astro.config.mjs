@@ -7,5 +7,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react()]
+  }), react()],
+  site: 'https://annotize.ai',
 });
