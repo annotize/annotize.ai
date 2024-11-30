@@ -1,9 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import {ContactButton} from "@/components/ContactButton";
-import {Button} from "@/components/ui/button";
-import {Hrefs} from "@/lib/Hrefs";
 import {cn} from "@/lib/utils";
-import Link from "next/link";
 import React from "react";
 
 interface Feature {
@@ -106,7 +102,7 @@ function BenefitText({benefit}: { benefit: Benefit }) {
     );
 }
 
-export default function Home() {
+export default function IndexPage() {
     return (
         <main className="flex flex-col gap-24 xl:gap-32 items-center">
             <section className="flex flex-row justify-between">
@@ -133,7 +129,7 @@ export default function Home() {
                     <BenefitText benefit={benefit} key={benefitI}/>
                 </section>)}
             {benefits.map((benefit, benefitI) =>
-                <section className="hidden md:block md:flex md:flex-row md:gap-8 lg:gap-8 xl:gap-16 items-center" key={benefitI}>
+                <section className="hidden md:flex md:flex-row md:gap-8 lg:gap-8 xl:gap-16 items-center" key={benefitI}>
                     {benefitI % 2 === 0 ? (
                         <>
                             <BenefitImage benefit={benefit} key={benefitI}/>
