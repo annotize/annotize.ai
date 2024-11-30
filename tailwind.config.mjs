@@ -1,3 +1,5 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ['class'],
@@ -50,8 +52,11 @@ export default {
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
     			}
-    		}
-    	}
+    		},
+			fontFamily: {
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+			},
+		},
     },
 	plugins: [require("tailwindcss-animate")],
 }
