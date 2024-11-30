@@ -38,6 +38,7 @@ export function ContactForm() {
       <form
         accept-charset="UTF-8"
         action="https://submit-form.com/YSagckDdF"
+        data-botpoison-public-key="pk_43c589ad-e044-45dd-b7d4-7a2419663441"
         className="flex flex-col space-y-8 w-full"
         method="POST"
       >
